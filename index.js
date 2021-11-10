@@ -8,11 +8,11 @@ const adminRouter = require('./Back-end/api/adminRoutes');
 const cookieParser = require('cookie-parser');
 
 //using Middlewear
-// var corsOptions = {
-//     origin: 'http://localhost:3001',
-//     }
+var corsOptions = {
+    origin: 'http://localhost:3000'
+    }
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser());
 
 //Route middlewear
