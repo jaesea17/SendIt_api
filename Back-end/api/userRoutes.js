@@ -65,10 +65,7 @@ router.post('/signIn',async(req,res) =>{
                     expiresIn: '1h' 
                 });
                 console.log(token);
-                res.cookie("auth_token",token,{
-                    maxAge: 3600000, 
-                }).send(User);
-               // res.header('auth_token',token).send(User);
+                res.header('auth_token',token).send(User);
         }catch(err){
               if(err) return console.log(err);
           };
