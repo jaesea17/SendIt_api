@@ -39,29 +39,29 @@ ReactJS
 ## Features
 
 You can carry out the following with the api
--Signup a customer <br>
--Signin a customer <br>
--Signout a customer <br>
--Signup an Admin <br>
--Signin an Admin <br>
--Signout an Admin <br>
--Create an order <br>
--Customer can edit order <br>
--Customer can delete order <br>
--Admin can edit order status and location
+- Signup a customer <br>
+- Signin a customer <br>
+- Signout a customer <br>
+- Signup an Admin <br>
+- Signin an Admin <br>
+- Signout an Admin <br>
+- Create an order <br>
+- Customer can edit order <br>
+- Customer can delete order <br>
+- Admin can edit order status and location
 
 
 ### Usage
 
 #### Customer registration
 
--To `signup` send `post` request containing `first name`, `last name`, `email` and `password` to `https://jsendit-api.herokuapp.com/user/signUp` <br>
--To `signin` send `post` request containing `email` and `password` to `https://jsendit-api.herokuapp.com/user/signIn`
+- To `signup` send `post` request containing `first name`, `last name`, `email` and `password` to `https://jsendit-api.herokuapp.com/user/signUp` <br>
+- To `signin` send `post` request containing `email` and `password` to `https://jsendit-api.herokuapp.com/user/signIn`
 
 #### Admin registration
 
--Admins can `signup` by, sending `post` request containing `id number`, `email` and `password` to `https://git.heroku.com/jsendit-api.git/admin/signUp` <br>
--Admins can `signin` by, sending `post` request containing `id number`, `email` and `password` to `https://git.heroku.com/jsendit-api.git/admin/signIn`
+- Admins can `signup` by, sending `post` request containing `id number`, `email` and `password` to `https://git.heroku.com/jsendit-api.git/admin/signUp` <br>
+- Admins can `signin` by, sending `post` request containing `id number`, `email` and `password` to `https://git.heroku.com/jsendit-api.git/admin/signIn`
 
 
 ### Development
