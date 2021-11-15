@@ -11,6 +11,7 @@ This is the API that serves the courier service web application "sendit"
 - [Getting Started](#Getting-Started "Goto Getting-Started")
 - [Technology Stack](#Technology-Stack "Goto Technology-Stack")
 - [Installation](#Installation "Goto Installation")
+- [Features](#Features "Goto Features")
 - [Usage](#Usage "Goto Usage")
 - [Testing](#Testing "Goto Testing")
 - [Questions](#Questions "Goto Questions")
