@@ -1,16 +1,13 @@
-const{Client} = require('pg');// or const Client = require('pg').Client; 
+const{Pool} = require('pg');// or const Client = require('pg').Client; 
 require('dotenv/config');
 
-let client;
+let pool;
 if(process.env.NODE_ENV === "production"){
-     client = new Client({
-        connectionString: process.env.DATABASE_URL,
-        ssl: {
-            rejectUnauthorized: false,
-        }
+     pool = new Pool({
+        connectionString: process.env.DATABASE_URL
     })
 }else{
-    client = new Client({
+    pool = new Pool({
         host: process.env.db_host,
         user: process.env.db_user,
         port: process.env.db_port,
@@ -20,9 +17,9 @@ if(process.env.NODE_ENV === "production"){
 }
     
 
-client.connect((err)=>{
+pool.connect((err)=>{
     if(err) return console.log(`connection failed: ${err.message}`)
     console.log(`connected to database`);
 });
 
-module.exports = client;
+module.exports = pool;
