@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const client = require('../config/db');
+const pool = require('../config/db');
 const{adSignUpValidation,adSignInValidation} = require('../../validation');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -15,7 +15,7 @@ router.put('/signUp',async(req,res) =>{
     
     //checking if idNumber and email exist   
     try{
-        let Admin = await client.query(
+        let Admin = await pool.query(
             `SELECT * 
             FROM admin
             WHERE id_number = $1`,[req.body.idNumber]);
@@ -32,7 +32,7 @@ router.put('/signUp',async(req,res) =>{
     
     //updating client
     try{
-        await client.query(
+        await pool.query(
             `UPDATE admin
             SET email = $1, password = $2
             WHERE id_number = $3`,
@@ -53,7 +53,7 @@ router.post('/signIn',async(req,res) =>{
     
     //checking admin validity
     try{
-        let Admin = await client.query(
+        let Admin = await pool.query(
             `SELECT * 
             FROM admin
             WHERE id_number = $1`,[req.body.idNumber]);

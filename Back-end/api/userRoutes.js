@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const client = require('../config/db');
+const pool = require('../config/db');
 const{signUpValidation,signInValidation} = require('../../validation');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -14,7 +14,7 @@ router.post('/signUp',async(req,res) =>{
     
     //checking email
     try{
-      let emailExist = await client.query(
+      let emailExist = await pool.query(
             `SELECT email
              FROM users
              where email= $1`,[req.body.email]);
@@ -28,7 +28,7 @@ router.post('/signUp',async(req,res) =>{
     let password = hashedPassword;
     //inserting into table
     try{
-       await client.query(
+       await pool.query(
             "INSERT INTO users(first_name,last_name,email,password) VALUES($1,$2,$3,$4) RETURNING id, password",
             [firstName,lastName,email,password])
             console.log("signup successful")
@@ -49,7 +49,7 @@ router.post('/signIn',async(req,res) =>{
     //checking user validity 
     let{email,password} = req.body;
     try{
-        let User = await client.query(
+        let User = await pool.query(
               `SELECT *
                FROM users
                where email= $1`,[email]);
