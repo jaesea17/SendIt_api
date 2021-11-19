@@ -6,7 +6,7 @@ const client = require('../config/db');
 
 //create order,user
 router.post('/orders',verify,async(req,res)=>{
- let{package,weight,fCountry,fAddress,
+ let{package: item,weight,fCountry,fAddress,
     fCity,fState,tCountry,
     tAddress,tCity,tState}= req.body;
     console.log("req.body",req.body)
@@ -15,15 +15,15 @@ router.post('/orders',verify,async(req,res)=>{
       let email = req.user.email; 
      try{
         await client.query(
-            `INSERT INTO orders(package,weight,f_country,f_address,
+            `INSERT INTO orders(item,weight,f_country,f_address,
                 f_city,f_state,t_country,t_address,t_city,t_state,email,customer_id) 
             VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12) RETURNING *`,
-            [package,weight,fCountry,fAddress,
+            [item,weight,fCountry,fAddress,
                 fCity,fState,tCountry,
                 tAddress,tCity,tState,email,customerId],(err,result)=>{
                     if(err) return console.log(err)
                     res.send(result.rows);
-                    console.log("package:", package);
+                    console.log("item:", item);
                     console.log("weight:", weight);
                 })           
     }catch(err){
