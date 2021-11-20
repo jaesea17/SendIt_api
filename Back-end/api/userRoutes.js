@@ -43,7 +43,7 @@ router.post('/signUp',async(req,res) =>{
 
 //SIGNIN
 router.post('/signIn',async(req,res) =>{
-    const validation = await signInValidation(req.body);
+    const validation = signInValidation(req.body);
     if(validation.error) return console.log(validation.error.details[0].message);
     
     //checking user validity 
