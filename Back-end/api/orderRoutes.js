@@ -6,7 +6,7 @@ const pool = require('../config/db');
 
 //create order,user
 router.post('/orders',verify,async(req,res)=>{
- let{package: item,weight,fCountry,fAddress,
+ let{item,weight,fCountry,fAddress,
     fCity,fState,tCountry,
     tAddress,tCity,tState}= req.body;
     console.log("req.body",req.body)
