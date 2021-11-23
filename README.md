@@ -22,7 +22,7 @@ This is a frontend javascript application built with [React JS](https://reactjs.
 
 ## Technology Stack
 
-ReactJS
+NodeJS, Express
 
 ## Installation
 

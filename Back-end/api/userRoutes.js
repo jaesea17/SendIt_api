@@ -32,8 +32,7 @@ router.post('/signUp',async(req,res) =>{
             "INSERT INTO users(first_name,last_name,email,password) VALUES($1,$2,$3,$4) RETURNING id, password",
             [firstName,lastName,email,password])
             console.log("signup successful")
-            res.send("signup successful");
-            //res.redirect('/sendIT_sign-in.html')    
+            res.send("signup successful");    
     }catch(err){
         if(err) return console.log(err)
     };
