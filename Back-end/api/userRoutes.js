@@ -10,22 +10,22 @@ const jwt = require('jsonwebtoken');
 router.post('/signUp',async(req,res) =>{
     const validation = signUpValidation(req.body);
     if(validation.error) return console.log(validation.error.details[0].message);
+    
+    let{firstName,lastName,email} = req.body;
     let hashedPassword = await bcrypt.hash(req.body.password, 10);
+    let password = hashedPassword;
     
     //checking email
     try{
       let emailExist = await pool.query(
             `SELECT email
              FROM users
-             where email= $1`,[req.body.email]);
+             where email= $1`,[email]);
            if(emailExist.rows.length > 0 ) return console.log(`email already exists`);
         }catch(err){
             if(err) return console.log(err);
         };
     
-   
-    let{firstName,lastName,email} = req.body;
-    let password = hashedPassword;
     //inserting into table
     try{
        await pool.query(
