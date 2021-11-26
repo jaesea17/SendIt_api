@@ -3,16 +3,17 @@ require('dotenv/config');
 
 let pool;
 if(process.env.NODE_ENV === "production"){
+    let connectionString = process.env.DATABASE_URL;
      pool = new Pool({
-        connectionString: process.env.DATABASE_URL
+        connectionString
     })
 }else{
     pool = new Pool({
-        host: process.env.db_host,
-        user: process.env.db_user,
-        port: process.env.db_port,
-        password: process.env.db_password,
-        database: process.env.db_database,
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        port: process.env.DB_PORT,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_DATABASE
     })
 }
     
