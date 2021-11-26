@@ -5,12 +5,7 @@ let pool;
 if(process.env.NODE_ENV === "production"){
      pool = new Pool({
         connectionString: process.env.DATABASE_URL,
-        dialectOptions: {
-            ssl: {
-              require: true, 
-              rejectUnauthorized: false 
-            }
-          }
+        ssl: true
     })
 }else{
     pool = new Pool({
