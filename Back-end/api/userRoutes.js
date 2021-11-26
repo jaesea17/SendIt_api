@@ -64,7 +64,7 @@ router.post('/signIn',async(req,res) =>{
                     expiresIn: '1h' 
                 });
                 console.log(token);
-                res.header('auth_token',token).send(User);
+                res.send({"auth_token":token})
         }catch(err){
               if(err) return console.log(err);
           };

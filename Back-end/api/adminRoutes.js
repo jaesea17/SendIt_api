@@ -62,9 +62,9 @@ router.post('/signIn',async(req,res) =>{
         if(!validatePassword) return console.log('password incorrect')
         // creating and inserting token into head
         const token = jwt.sign({id:Admin.rows[0].id_number},process.env.TOKEN_SECRETE,{expiresIn: '1h'});
-      res.header('auth_token',token,{maxAge: 3600000}).send(Admin)
-       console.log("signed in") 
-       console.log(token);
+        res.send({"auth_token":token})
+        console.log("signed in") 
+        console.log(token);
   }catch(err){
         if(err) return console.log(err);
     }
