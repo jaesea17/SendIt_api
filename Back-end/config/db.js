@@ -7,6 +7,7 @@ if(process.env.NODE_ENV === "production"){
         connectionString: process.env.DATABASE_URL,
         dialectOptions: {
             ssl: {
+              require: true, 
               rejectUnauthorized: false 
             }
           }
