@@ -2,9 +2,6 @@ const jwt = require('jsonwebtoken');
 
 module.exports = (req,res,next) =>{
     const token = req.headers.authorization; 
-    console.log("****req.headers",req.headers);
-    console.log("***",req.body);
-    console.log("verifytoken:", token);
     if(!token) return res.status(401).send("access denied");
     try{
         const verified = jwt.verify(token,process.env.TOKEN_SECRETE);
