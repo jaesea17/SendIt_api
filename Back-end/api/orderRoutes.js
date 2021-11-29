@@ -9,7 +9,6 @@ router.post('/orders',verify,async(req,res)=>{
  let{item,weight,fCountry,fAddress,
     fCity,fState,tCountry,
     tAddress,tCity,tState}= req.body;
-    console.log("req.body",req.body)
      //getting the customer id and email from req.user contained in the "verify" function
       let customerId = req.user.id;
       let email = req.user.email; 
@@ -23,8 +22,6 @@ router.post('/orders',verify,async(req,res)=>{
                 tAddress,tCity,tState,email,customerId],(err,result)=>{
                     if(err) return console.log(err)
                     res.send(result.rows);
-                    console.log("item:", item);
-                    console.log("weight:", weight);
                 })           
     }catch(err){
             if(err) return console.log(err)
