@@ -46,6 +46,7 @@ You can carry out the following with the api
 - Signin an Admin <br>
 - Signout an Admin <br>
 - Create an order <br>
+- Retrieve orders <br>
 - Customer can edit order <br>
 - Customer can delete order <br>
 - Emails is sent whenever there's an update <br>
@@ -80,7 +81,7 @@ For more details contact  `oforkajajoseph@gmail.com`
 Support or Contributions are highly appreciated. Please send me an email for any suggestion, support or issue. To contribute:
 
 1. Fork this repository or clone the repository with the command
-   `$ git clone https://github.com/jaesea17/react_sendit`.
+   `$ git clone https://github.com/jaesea17/SendIt_api`.
 
 2. Change directory into the root of the project directory.
 
