@@ -48,6 +48,7 @@ You can carry out the following with the api
 - Create an order <br>
 - Customer can edit order <br>
 - Customer can delete order <br>
+- Emails is sent whenever there's an update <br>
 - Admin can edit order status and location
 
 
