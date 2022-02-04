@@ -55,9 +55,8 @@ router.post('/signIn',async(req,res) =>{
              if(User.rows.length == 0 ) return console.log(`email incorrect`); 
              const validatePassword = await bcrypt.compare(password,User.rows[0].password) 
               if(!validatePassword) return console.log('password incorrect')
-              // creating and inserting token into head
-              const token = jwt.sign(
-                  {
+              // creating and inserting token 
+              const token = jwt.sign({
                   id:User.rows[0].id,
                   email:User.rows[0].email,
                 },process.env.TOKEN_SECRETE,{

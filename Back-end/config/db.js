@@ -16,7 +16,7 @@ if(process.env.NODE_ENV === "production"){
         user: process.env.DB_USER,
         port: process.env.DB_PORT,
         password: process.env.DB_PASSWORD,
-        database: process.env.DB_DATABASE,
+        database: process.env.DB_DATABASE
     })
 }
     
@@ -26,4 +26,4 @@ pool.connect((err)=>{
     console.log(`connected to database`);
 });
 
-module.exports = pool;
+ module.exports = pool;

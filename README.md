@@ -1,6 +1,6 @@
 # SendIT API
 
-This is the API that serves the courier service web application "sendit"
+This is the API that serves the courier service web application "sendit"(originally a 6-hour code challenge).
 <br />
 <br />
 
@@ -28,7 +28,7 @@ NodeJS, Express
 
 1. Install Node JS on your machine.
 
-2. Clone the repository [here](https://github.com/jaesea17/react_sendit).
+2. Clone the repository [here](https://github.com/jaesea17/SendIt_api).
 
 3. Change directory into the root of the project directory.
 
