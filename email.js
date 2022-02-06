@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-const sendEmail = (message) =>{
+const sendEmail = (message) => {
     let transporter = nodemailer.createTransport({
         host: 'smtp.mailtrap.io',
         port: 2525,

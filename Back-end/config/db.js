@@ -21,8 +21,8 @@ if(process.env.NODE_ENV === "production"){
 }
     
 
-pool.connect((err)=>{
-    if(err) return console.log(`connection failed: ${err.message}`)
+pool.connect((err) => {
+    if (err) return console.log(`connection failed: ${err.message}`)
     console.log(`connected to database`);
 });
 

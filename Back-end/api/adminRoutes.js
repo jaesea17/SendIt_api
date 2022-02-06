@@ -8,7 +8,7 @@ const jwt = require('jsonwebtoken');
 
 
 //SIGNUP
-router.put('/signUp',async(req,res) =>{
+router.put('/signUp', async (req, res) =>{
     const validation = adSignUpValidation(req.body);
     if(validation.error) return console.log(validation.error.details[0].message);
     let hashedPassword = await bcrypt.hash(req.body.password, 10);
@@ -18,7 +18,7 @@ router.put('/signUp',async(req,res) =>{
         let Admin = await pool.query(
             `SELECT * 
             FROM admin
-            WHERE id_number = $1`,[req.body.idNumber]);
+            WHERE id_number = $1`, [req.body.idNumber]);
             if(Admin.rows.length == 0) return console.log(`*****id is not an admin`);
             let adminEmail = Admin.rows.map((item) => {return item.email});
             if(adminEmail[0] != null) return console.log('******admin account already exist');
@@ -27,7 +27,7 @@ router.put('/signUp',async(req,res) =>{
         };
     
    
-    let{idNumber,email} = req.body;
+    let {idNumber,email} = req.body;
     let password = hashedPassword;
     
     //updating client
@@ -47,7 +47,7 @@ router.put('/signUp',async(req,res) =>{
 
 
 //SIGNIN
-router.post('/signIn',async(req,res) =>{
+router.post('/signIn', async ( req, res) => {
     const validation = await adSignInValidation(req.body);
     if(validation.error) return console.log(validation.error.details[0].message);
     
@@ -56,12 +56,13 @@ router.post('/signIn',async(req,res) =>{
         let Admin = await pool.query(
             `SELECT * 
             FROM admin
-            WHERE id_number = $1`,[req.body.idNumber]);
+            WHERE id_number = $1`, [req.body.idNumber]);
         if(Admin.rows.length == 0) return console.log(`id is incorrect`);
         const validatePassword = await bcrypt.compare( req.body.password,Admin.rows[0].password) 
         if(!validatePassword) return console.log('password incorrect')
         // creating and inserting token into head
-        const token = jwt.sign({id:Admin.rows[0].id_number},process.env.TOKEN_SECRETE,{expiresIn: '1h'});
+        const token = jwt.sign({id:Admin.rows[0].id_number}, 
+            process.env.TOKEN_SECRETE,{expiresIn: '1h'});
         res.send({"auth_token":token})
         console.log("signed in") 
         console.log(token);
